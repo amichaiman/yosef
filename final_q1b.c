@@ -3,9 +3,15 @@
 #include <stdlib.h>
 
 int broken_appears(const char *src, const char *lookup_a, const char *lookup_b);
+int broken_str(const char *src, const char *lookup);
 
 int main(){
-
+    if (broken_str("yosef ben-menashe","yobfd"))
+    {
+        printf("found! :)\n");
+    } else {
+        printf("not found :(\n");
+    }
 
     return 0;
 }
