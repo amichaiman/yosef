@@ -1,6 +1,8 @@
 #ifndef _LIBRARY_H
 #define _LIBRARY_H
 #include <string.h>
+#include <stdlib.h>
+
 /*              שיר עצמו        */
 typedef struct{
     char name[10];
@@ -11,15 +13,16 @@ typedef struct{
 
 
 /*              שיר בודד            */
-typedef struct{
+typedef struct node{
     song *my_song;
-    struct Node *next;
+    struct node *next;
 } Node;
 
 
 
 /*          ספריית השירים       */
 typedef struct{
+    int num_of_songs;
     Node *head;
 } library;
 
@@ -27,7 +30,10 @@ typedef struct{
 
 void create_library(library *l);
 int add_song(library *l, song *s);
-Node *song_appears(library *l, song *to_find);
+int song_appears(library *l, song *to_find);
 song *copy_song(song *s1);
+int remove_song(library *l, song *s);
+song *get_song(library *l,char *name);
+void print_songs(library *l, void *print_by, void(*print_songs_by_type)(void *));
 
 #endif
